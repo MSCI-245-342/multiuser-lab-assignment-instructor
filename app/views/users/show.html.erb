@@ -1,0 +1,13 @@
+<h1>User Account Details</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<%= link_to 'Home', root_path %> |
+<%= link_to 'List All Users', users_path %>

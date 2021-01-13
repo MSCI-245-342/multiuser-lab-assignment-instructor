@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <%# Modified from: https://stackoverflow.com/questions/9390778/best-practice-method-of-displaying-flash-messages %>
+    
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, id: "#{key}" %>
+    <% end %>      
+      
     <%= yield %>
   </body>
 </html>

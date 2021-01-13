@@ -1,0 +1,10 @@
+<h1>Welcome!</h1>
+<p>My name is Your First and Last Name Here.</p>
+
+<% if logged_in? %>
+  <p><%= link_to 'List All Users', users_path %></p>
+  <p><%= link_to 'Logout', logout_path %></p>
+<% else %>
+  <p><%= link_to 'Login', login_path %></p>
+  <p><%= link_to 'Signup for an account', signup_path %></p>
+<% end %>
