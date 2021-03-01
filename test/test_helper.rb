@@ -1,3 +1,7 @@
+# added Feb 7, 2021 https://github.com/simplecov-ruby/simplecov
+require 'simplecov'
+SimpleCov.start 'rails'
+
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
@@ -10,4 +14,22 @@ class ActiveSupport::TestCase
  # fixtures :all
 
   # Add more helper methods to be used by all tests here...
+        
+end
+
+class ActionDispatch::IntegrationTest
+
+  def create_user
+    user = User.create( name: "Fake User",
+              email: "test@test.com",
+              password: "password",
+              password_confirmation: "password" )
+    return user
+  end    
+    
+  # Log in as a particular user. (Hartl)
+  def log_in_as(user, password: 'password')
+    post login_path, params: { email: user.email,
+                               password: password } 
+  end
 end
